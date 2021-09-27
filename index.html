@@ -11,10 +11,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Osorio Game</h1>
+        <!-- <h1>Osorio Game</h1>
         <div class="btn btn-primary" @click="setGiacomo()" >Show Giacomo</div>
         <div class="btn btn-primary" @click="setMatteo()">Show Matteo</div>
-        <img :src="'img/'+ images[selectIndex]" alt="">
+        <img :src="'img/'+ images[selectIndex]" alt=""> -->
+    
+        <div class="d-flex">
+            <div class="w-50">
+                <h2>Giacomo</h2>
+                <h4>Hp: {{ giacomoHp }}</h4>
+
+                <img src="img/giacomo.png" alt="" @click="hitGiacomo()">
+            </div>
+            <div class="w-50">
+                <h2>Matteo</h2>
+                <h4>Hp: {{ matteoHp }}</h4>
+                <img src="img/matteo.png" alt=""  @click="hitGiacomo()">
+            </div>
+        </div>
     </div>
 
 
