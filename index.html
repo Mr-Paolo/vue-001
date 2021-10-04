@@ -7,19 +7,26 @@
     <title>First project</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <!-- <h1>Osorio Game</h1>
-        <div class="btn btn-primary" @click="setGiacomo()" >Show Giacomo</div>
-        <div class="btn btn-primary" @click="setMatteo()">Show Matteo</div>
-        <img :src="'img/'+ images[selectIndex]" alt=""> -->
-    
         <div class="d-flex">
             <div class="w-50">
                 <h2>Giacomo</h2>
                 <h4>Hp: {{ giacomoHp }}</h4>
+                <!-- Add the bg - danger class too -->
+                <div
+                    class="health-bar p-3"
+                    :class="{
+                        'bg-success' :  giacomoHp > 40, 
+                        'bg-warning' :  giacomoHp > 20 && giacomoHp < 41 , 
+                        
+                    }"
+                    :style="{
+                        width: giacomoHp + '%'
+                    }"
+                ></div>
                 <div v-if="giacomoHp == 0">
                     <h1>You lost!!</h1>
                 </div>
