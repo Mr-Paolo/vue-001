@@ -20,13 +20,15 @@
             <div class="w-50">
                 <h2>Giacomo</h2>
                 <h4>Hp: {{ giacomoHp }}</h4>
-
+                <div v-if="giacomoHp == 0">
+                    <h1>You lost!!</h1>
+                </div>
                 <img src="img/giacomo.png" alt="" @click="hitGiacomo()">
             </div>
             <div class="w-50">
                 <h2>Matteo</h2>
                 <h4>Hp: {{ matteoHp }}</h4>
-                <img src="img/matteo.png" alt=""  @click="hitGiacomo()">
+                <img src="img/matteo.png" alt=""  @click="hitMatteo()">
             </div>
         </div>
     </div>
