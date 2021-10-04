@@ -23,6 +23,12 @@
                 <div v-if="giacomoHp == 0">
                     <h1>You lost!!</h1>
                 </div>
+                <div v-else-if="giacomoHp < 20">
+                    You are dyng
+                </div>
+                <div v-else>
+                    You are live and well!
+                </div>
                 <img src="img/giacomo.png" alt="" @click="hitGiacomo()">
             </div>
             <div class="w-50">
