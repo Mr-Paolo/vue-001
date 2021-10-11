@@ -11,37 +11,47 @@
 </head>
 <body>
     <div class="container">
-        <div class="d-flex">
-            <div class="w-50">
-                <h2>Giacomo</h2>
-                <h4>Hp: {{ giacomoHp }}</h4>
-                <!-- Add the bg - danger class too -->
-                <div
-                    class="health-bar p-3"
-                    :class="{
-                        'bg-success' :  giacomoHp > 40, 
-                        'bg-warning' :  giacomoHp > 20 && giacomoHp < 41 , 
-                        
-                    }"
-                    :style="{
-                        width: giacomoHp + '%'
-                    }"
-                ></div>
-                <div v-if="giacomoHp == 0">
-                    <h1>You lost!!</h1>
-                </div>
-                <div v-else-if="giacomoHp < 20">
-                    You are dyng
-                </div>
-                <div v-else>
-                    You are live and well!
-                </div>
-                <img src="img/giacomo.png" alt="" @click="hitGiacomo()">
+        <div class="levels">
+            <div class="level-0" v-if="level === 0" >
+                <h1 class="text-center">Start game </h1>
+                <div class="btn btn-primary" @click="levelUp()">Start game</div>
             </div>
-            <div class="w-50">
-                <h2>Matteo</h2>
-                <h4>Hp: {{ matteoHp }}</h4>
-                <img src="img/matteo.png" alt=""  @click="hitMatteo()">
+            <div class="level-1 d-flex flex-wrap" v-if="level === 1">
+                <div class="w-100">
+                    <h2>Kill Matteo</h2>
+                </div>
+                <div class="w-50">
+                    <!-- <h2>Giacomo</h2> -->
+                    <h4>Hp: {{ giacomoHp }}</h4>
+                    <!-- Add the bg - danger class too -->
+                    <div
+                        class="health-bar p-3"
+                        :class="{
+                            'bg-success' :  giacomoHp > 40, 
+                            'bg-warning' :  giacomoHp > 20 && giacomoHp < 41 , 
+                            
+                        }"
+                        :style="{
+                            width: giacomoHp + '%'
+                        }"
+                    ></div>
+                    <div v-if="giacomoHp == 0">
+                        <h1>You lost!!</h1>
+                    </div>
+                    <div v-else-if="giacomoHp < 20">
+                        You are dyng
+                    </div>
+                    <div v-else>
+                        You are live and well!
+                    </div>
+                    <img src="img/giacomo.png" alt="" @keyup.s="hitGiacomo()"  @click="hitGiacomo()">
+                </div>
+                <div class="w-50">
+                    <!-- <h2>Matteo</h2> -->
+                    <h4>Hp: {{ matteoHp }}</h4>
+                    <img src="img/matteo.png" alt=""  @click="hitMatteo()">
+                </div>
+
             </div>
         </div>
     </div>

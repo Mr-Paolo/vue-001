@@ -6,9 +6,20 @@ Vue.createApp({
             // images : ["giacomo.png", "matteo.png"],
             giacomoHp: 100,
             matteoHp: 100,
+            level: 0,
         }
     },
     methods: {
+        keyClick(e) {
+            console.log(e)
+            console.log(e.key)
+            if (e.key == 'm'){
+                this.hitMatteo()
+            }
+        },
+        levelUp() {
+            this.level++
+        },
         hitMatteo() {
             // to decrease the value, you will need to change 
             // the this.giacomoHp variable
@@ -31,5 +42,10 @@ Vue.createApp({
             }
 
         },
+    },
+    mounted() {
+        window.onkeydown = (e) => {
+            this.keyClick(e)
+        }
     }
 }).mount('.container')
